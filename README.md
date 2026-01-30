@@ -51,6 +51,4 @@
     dotnet build -c Release
     ```
 
-## License
 
-MIT License
