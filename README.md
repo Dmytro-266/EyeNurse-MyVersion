@@ -51,4 +51,14 @@
     dotnet build -c Release
     ```
 
+## Credits
 
+This project is a fork of [Eye Nurse](https://github.com/DaZiYuan/eye-nurse) by DaZiYuan.
+It has been extensively modified, redesigned, and enhanced by the **EyeEase** team.
+
+## License
+
+This project is licensed under the **GNU General Public License v3.0** (GPL-3.0).
+See the [LICENSE](LICENSE) file for details.
+
+You are free to use, modify, and distribute this software, provided that any derivative works are also distributed under the same license terms.
