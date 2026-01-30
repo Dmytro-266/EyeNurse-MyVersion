@@ -348,10 +348,12 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/src/EyeNurse/Assets/UI
-/src/setup/dist
-/src/setup/publish
 
 # My Builds
+src/EyeNurse/Assets/UI
+src/setup/dist
+src/setup/publish
 ReleaseBuild_v*/
 src/eyenurse-client-ui/dist/
+src/EyeNurse/EyeEase Refresh/
+src/EyeNurse/ReleaseBuild*/

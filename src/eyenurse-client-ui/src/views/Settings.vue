@@ -58,16 +58,7 @@
               class="w-28 text-center focus:ring-teal-500 focus:border-teal-500 block px-5 sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
               placeholder="HH:mm:ss" />
           </li>
-          <li class="py-4 flex items-center justify-between">
-            <div class="flex flex-col">
-              <p class="text-sm font-medium text-gray-900 dark:text-gray-100">
-                {{ t("pauseHotkey") }}
-              </p>
-            </div>
-            <input type="text" @blur="saveSettings" @keydown="recordHotkey" :value="settings.PauseHotkey"
-              class="w-28 text-center focus:ring-teal-500 focus:border-teal-500 block px-5 sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
-              placeholder="Ctrl+Alt+P" />
-          </li>
+
         </ul>
       </div>
     </div>
@@ -88,34 +79,7 @@ const saveSettings = () => {
     store.saveSettings();
 };
 
-const recordHotkey = (e: KeyboardEvent) => {
-  e.preventDefault();
-  const parts = [];
-  if (e.ctrlKey) parts.push('Ctrl');
-  if (e.shiftKey) parts.push('Shift');
-  if (e.altKey) parts.push('Alt');
-  if (e.metaKey) parts.push('Win');
 
-  let key = e.key;
-  if (key === ' ') key = 'Space';
-  if (key.length === 1) key = key.toUpperCase();
-  
-  if (!['Control', 'Shift', 'Alt', 'Meta'].includes(e.key)) {
-    if (key === 'Backspace' || key === 'Delete') {
-       if (settings.value.PauseHotkey) {
-           settings.value.PauseHotkey = '';
-           saveSettings();
-       }
-       return;
-    }
-    parts.push(key);
-  }
-
-  if (parts.length > 0) {
-      settings.value.PauseHotkey = parts.join('+');
-      saveSettings();
-  }
-};
 
 const toggleDarkMode = (val: boolean) => {
   store.toggleDarkMode(val);
