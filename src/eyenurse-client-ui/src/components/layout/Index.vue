@@ -36,13 +36,5 @@ const onOpenChanged = (e: boolean) => {
   sidebarOpen.value = e;
 };
 const topNav = ref<NavItemModel[]>([]);
-const bottomNav = ref<NavItemModel[]>([
-  {
-    name: "setting",
-    href: "/settings",
-    icon: CogIcon,
-    textKey: "settings",
-    current: false,
-  },
-]);
+const bottomNav = ref<NavItemModel[]>([]);
 </script>
