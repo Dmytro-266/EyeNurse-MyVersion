@@ -94,7 +94,7 @@
 
                <!-- Reset After Click (ResetWhenSessionUnlock) -->
                <div class="group border-l-4 border-transparent px-3 py-2 flex items-center justify-between text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700">
-                   <span class="truncate">{{ t('resetWhenSessionUnlock') }}</span>
+                   <span class="whitespace-normal">{{ t('resetWhenSessionUnlock') }}</span>
                     <Switch v-model="settings.ResetWhenSessionUnlock" @update:modelValue="saveSettings" :class="[
                        settings.ResetWhenSessionUnlock ? 'bg-teal-500' : 'bg-gray-200',
                        'ml-4 relative inline-flex flex-shrink-0 h-5 w-9 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500'
@@ -108,19 +108,23 @@
                
                <!-- Action Buttons -->
                <div class="flex flex-wrap gap-2 mt-4">
-                   <button @click="pauseToggle" class="flex-1 group border border-transparent px-3 py-2 flex items-center justify-center text-sm font-medium rounded-md text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
-                        <PauseIcon class="flex-shrink-0 -ml-1 mr-1 h-4 w-4" aria-hidden="true" />
+                   <button @click="pauseToggle" class="flex-1 group border border-gray-300 dark:border-gray-600 px-3 py-2 flex items-center justify-center text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                        <PauseIcon class="flex-shrink-0 -ml-1 mr-1 h-4 w-4 text-amber-500" aria-hidden="true" />
                         {{ t('pause') }}
                    </button>
-                   <button @click="reset" class="flex-1 group border border-transparent px-3 py-2 flex items-center justify-center text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                        <RefreshIcon class="flex-shrink-0 -ml-1 mr-1 h-4 w-4" aria-hidden="true" />
+                   <button @click="reset" class="flex-1 group border border-gray-300 dark:border-gray-600 px-3 py-2 flex items-center justify-center text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                        <RefreshIcon class="flex-shrink-0 -ml-1 mr-1 h-4 w-4 text-red-500" aria-hidden="true" />
                         {{ t('reset') }}
                    </button>
                </div>
-               <button @click="restNow" class="w-full mt-2 group border border-transparent px-4 py-2 flex items-center justify-center text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-                    <PlayIcon class="flex-shrink-0 -ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-                    {{ t('rest_now') }}
-               </button>
+                <button @click="restNow" class="w-full mt-4 group border border-gray-300 dark:border-gray-600 px-4 py-2 flex items-center justify-center text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                     <PlayIcon class="flex-shrink-0 -ml-1 mr-2 h-5 w-5 text-teal-500" aria-hidden="true" />
+                     {{ t('rest_now') }}
+                </button>
+                <button @click="exit" class="w-full mt-2 group border border-gray-300 dark:border-gray-600 px-4 py-2 flex items-center justify-center text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                     <LogoutIcon class="flex-shrink-0 -ml-1 mr-2 h-5 w-5 text-red-500" aria-hidden="true" />
+                     {{ t('exit') }}
+                </button>
           </div>
         </div>
         <div class="flex-shrink-0 border-t border-gray-200 dark:border-gray-700 p-2">
@@ -162,7 +166,7 @@ import Toggle from "./Toggle.vue";
 import { useSettingsStore } from "@/stores/settings";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
-import { PlayIcon, PauseIcon, RefreshIcon } from "@heroicons/vue/outline";
+import { PlayIcon, PauseIcon, RefreshIcon, LogoutIcon } from "@heroicons/vue/outline";
 import * as client from "@/lib/client";
 
 type PropsType = {
@@ -199,6 +203,10 @@ const pauseToggle = async () => {
 
 const reset = async () => {
     await client.Reset();
+};
+
+const exit = async () => {
+    await client.Exit();
 };
 
 onMounted(async () => {

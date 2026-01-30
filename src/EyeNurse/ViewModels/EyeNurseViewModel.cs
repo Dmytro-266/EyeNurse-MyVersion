@@ -104,7 +104,14 @@ namespace EyeNurse.ViewModels
         }
         private void SettingChanged(object? sender, Setting e)
         {
-            Init();
+            if (_setting?.RestInterval != e.RestInterval)
+            {
+                Init();
+            }
+            else
+            {
+                _setting = e;
+            }
         }
         private void OnHotkeyTriggered(object? sender, EventArgs e)
         {

@@ -57,3 +57,9 @@ export async function Reset() {
   const { api } = window.chrome.webview.hostObjects;
   await api.Reset();
 }
+
+export async function Exit() {
+  if (!window.chrome.webview) return;
+  const { api } = window.chrome.webview.hostObjects;
+  await api.Exit();
+}

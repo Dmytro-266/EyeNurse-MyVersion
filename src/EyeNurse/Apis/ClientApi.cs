@@ -114,5 +114,14 @@ namespace EyeNurse.Apis
                 vm?.Reset();
             });
         }
+
+        public void Exit()
+        {
+            var app = IocService.GetService<App>();
+            app?.Dispatcher.Invoke(() =>
+            {
+                app.Shutdown();
+            });
+        }
     }
 }

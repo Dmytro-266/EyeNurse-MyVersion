@@ -6,6 +6,7 @@ interface API {
   Pause(): Promise;
   Resume(): Promise;
   Reset(): Promise;
+  Exit(): Promise;
   SetCurrentLanguage(lan: string): Promise;
   GetCurrentLanguage(): Promise<string>;
 }
