@@ -1,0 +1,16 @@
+{
+  "clientSettings": "Client Settings",
+  "copyright": "&copy; 2026",
+  "en": "English",
+  "home": "Home",
+  "panel": "Panel",
+  "restDuration": "Rest Duration",
+  "restInterval": "Rest Interval",
+  "runWhenStarts": "Run When My Computer Starts",
+  "resetWhenSessionUnlock": "Reset time after screen lock",
+  "settings": "Settings",
+  "zh": "简体中文",
+  "uk": "Українська",
+  "pauseHotkey": "Settings Hotkey",
+  "darkMode": "Dark Mode"
+}
