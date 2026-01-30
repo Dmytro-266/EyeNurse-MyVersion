@@ -14,6 +14,7 @@ namespace EyeNurse.Models.UserConfigs
         public Setting(SettingFrontEnd settingFrontEnd)
         {
             RestInterval = GetTimeSpan(settingFrontEnd.RestInterval, defaultRestInterval);
+            RestDuration = GetTimeSpan(settingFrontEnd.RestDuration, defaultRestDuration);
             ResetTimeout = GetTimeSpan(settingFrontEnd.ResetTimeout, defaultResetTimeout);
             ResetWhenSessionUnlock = settingFrontEnd.ResetWhenSessionUnlock;
             RunWhenStarts = settingFrontEnd.RunWhenStarts;
