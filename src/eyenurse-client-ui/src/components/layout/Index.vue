@@ -21,20 +21,25 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { CogIcon } from "@heroicons/vue/outline";
 import type { NavItemModel } from "./models/NavItemModel";
 import SliderNav from "./components/SliderNav.vue";
 import Footer from "./components/Footer.vue";
 
-const sidebarOpen = ref<boolean>(
-  JSON.parse(localStorage.getItem("sidebarOpen") || " true")
-);
+const sidebarOpen = ref<boolean>(false);
 
 const onOpenChanged = (e: boolean) => {
   localStorage.setItem("sidebarOpen", JSON.stringify(e));
   sidebarOpen.value = e;
 };
+
+onMounted(() => {
+  setTimeout(() => {
+    sidebarOpen.value = true;
+  }, 100);
+});
+
 const topNav = ref<NavItemModel[]>([]);
 const bottomNav = ref<NavItemModel[]>([]);
 </script>

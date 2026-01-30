@@ -115,6 +115,13 @@ namespace EyeNurse
             UpdateNotifyIconText();
             LoadQuickSettings();
             ShowCountdownWindow();
+            ShowMainWindow();
+        }
+
+        private static void ShowMainWindow()
+        {
+            var vm = IocService.GetService<MainViewModel>();
+            vm?.ShowWindow();
         }
 
         #region public

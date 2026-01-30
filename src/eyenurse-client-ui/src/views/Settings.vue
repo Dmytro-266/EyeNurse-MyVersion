@@ -113,6 +113,7 @@ const recordHotkey = (e: KeyboardEvent) => {
 
   if (parts.length > 0) {
       settings.value.PauseHotkey = parts.join('+');
+      saveSettings();
   }
 };
 
